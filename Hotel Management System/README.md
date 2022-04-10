@@ -74,3 +74,51 @@
 + Boolean addRoom(Room room);
 + Boolean editRoom(Room room);
 + Boolean deleteRoom(Room room);
+
+> class Guest extends Person:
+- SearchRoom searchRoom;
+- RoomBooking bookRoom;
++ List<BookRoom> getAllTheRoom();
+
+> class Receptionist extends Person:
+- SearchRoom searchRoom;
+- BookRoom bookRoom;
++ Boolean checkIn(Guest guestDetails, BookRoom bookedRoomInfo);
++ Boolean checkOut(Guest guestDetails, BookRoom bookedRoomInfo);
+
+> class Housekeeper extends Person:
++ List<Room> getRoomsServiced(Date date);
+
+> class SearchRoom:
++ List<Room> getSearchedRoom(Date date, RoomStyle roomStyle, int duration);
+
+> class BookRoom:
+- Int id;
+- Int duration;
+- Date startDate;
+- BookingStatus bookingStatus;
+- Guest guestInfo;
+- Room roomInfo;
+- BaseRoomCharge roomCharge;
+
+> interface BaseRoomCharge:
++ Double getCost();
+
+> class RoomCharge extends BaseRoomCharge:
+- Double cost;
++ Double getCost();
++ void setCost();
+
+> class RoomServiceCharge extends BaseRoomCharge:
+- Double cost;
++ RoomServiceCharge(Cost cost);
++ Double getCost();
+
+> class InRoomServiceCharge extends BaseRoomCharge:
+- Double cost;
++ InRoomServiceCharge(Cost cost);
++ Doule getCost();
+
+> class RoomBooking:
++ BookRoom createBooking();
++ BookRoom cancelBooking(Int id);

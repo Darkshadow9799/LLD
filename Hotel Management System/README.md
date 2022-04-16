@@ -61,8 +61,9 @@
 - Int id;
 - Date updateDate;
 - Int duration;
+- Room room;
 - Housekeeper housekeeper;
-+ void addRoomHousekeepingLogs(Room room);
++ void addRoomHousekeepingLogs(Room room, int duraion, HouseKeeper housekeeper);
 
 > interface Person:
 - String name;

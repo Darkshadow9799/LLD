@@ -15,6 +15,9 @@ public class HouseKeepingLog {
     private int duration;
 
     @ManyToMany
+    private Room room;
+
+    @ManyToMany
     private HouseKeeper houseKeeper;
 
     public HouseKeeper getHouseKeeper() {
@@ -41,12 +44,21 @@ public class HouseKeepingLog {
         this.duration = duration;
     }
 
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     public HouseKeepingLog() {
     }
 
-    public HouseKeepingLog(Date uploadDate, int duration, HouseKeeper houseKeeper) {
+    public HouseKeepingLog(Date uploadDate, int duration, Room room, HouseKeeper houseKeeper) {
         this.uploadDate = uploadDate;
         this.duration = duration;
+        this.room = room;
         this.houseKeeper = houseKeeper;
     }
 }
